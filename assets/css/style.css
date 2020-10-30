@@ -31,15 +31,24 @@ textarea{
 }
 
 .row {
-  white-space: pre-wrap;
+  /* white-space: pre-wrap; */
   height: 80px;
-  border-top: 1px solid white;;
+  /* border-top: 1px solid white; */
+  
+}
+
+.activity {
+  height:78px;
+  align-self: center;
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
-  border-top: 1px dashed #000000;
+  border: 2px dashed #000000;
+  border-collapse: collapse;
+  text-align: right;
+  height: 82px;
 }
 
 .past {
