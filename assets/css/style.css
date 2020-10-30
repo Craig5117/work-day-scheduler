@@ -32,9 +32,7 @@ textarea{
 }
 
 .row {
-  /* white-space: pre-wrap; */
   height: 80px;
-  /* border-top: 1px solid white; */
   
 }
 
@@ -50,7 +48,7 @@ textarea{
   border-collapse: collapse;
   text-align: right;
   height: 82px;
-  box-shadow: 5px 0 5px -2px #888;
+  box-shadow: 5px 0 5px -4px #888;
   z-index: 10;
 }
 
