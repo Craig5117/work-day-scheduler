@@ -14,55 +14,33 @@ var activities = []
 // }
 
 // var saveActivity = function() {
-//     activity = 
 //     localStorage.setItem("activities", JSON.stringify(activities));
 // }
 
 $(".saveBtn").on("click", function(){
         activityText = $(this).prev().children("textarea").val();
         activityId = $(this).prev().children("textarea").attr("id");
-        index = parseInt(activityId);
-        console.log("Index is " + index)
-        activityObj = {id: index, text: activityText}
+        // activityIndex = parseInt(activityId);
+        console.log("Index is " + activityId)
+        activityObj = {id: activityId, text: activityText}
         console.log("activities.length is " + activities.length)
         if (activities.length === 0) {
             activities.push(activityObj)
             console.log(activities)
         }
         //this is sort of working but it makes too many
-        else if (activities.length > 0) { 
-            console.log("I at least made it this far.")
+        else { 
             for (var i = 0; i < activities.length; ++i) {
+                // this part is sort of working
                 if (activities[i].id === activityObj.id) {
-                    console.log("is in array");
-                    activities[i].text = activityObj.text;
-                    console.log(activities);
+                    activities.splice(activities[i].id, 1);
+                    console.log(activities)
                 }
-                else {
-                    activities.push(activityObj);
-                    console.log("It ain't here bro.");
-                }
+                
             }
+            activities.push(activityObj);
+            console.log(activities)
         }
-        // else if (activities.length > 0) { 
-        //     console.log("I at least made it this far.")
-        //     for (var i = 0; i < activities.length; ++i) {
-        //         if (jQuery.inArray(activityObj.id, activities)) {
-        //             console.log("is in array");
-        //             console.log(activities);
-        //         }
-        //         else {activities.push(activityObj)
-        //             console.log("It ain't here bro.");
-        //             console.log(activites)
-        //         }
-        //     }
-        // }
-        // 
-        // } else {
-        //     console.log("is NOT in array");
-        // }
-        // console.log(activityObj)
-        // console.log(index)
 });
 var timeStatusAudit = function() {
     $(".hour").each(function (){
@@ -85,7 +63,8 @@ var timeStatusAudit = function() {
         $(this).siblings(".activity").removeClass("past").addClass("future");
     }
     });
-    setTimeout(timeStatusAudit, 1800000);
+    // update activity time status every 15 minutes
+    setTimeout(timeStatusAudit, 900000);
 };
 
  
