@@ -27,7 +27,7 @@ textarea{
 }
 
 .time-block{
-  text-align: center;
+ 
   border-radius: 15px;
 }
 
@@ -39,6 +39,12 @@ textarea{
 .activity {
   height:78px;
   align-self: center;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.activity-text {
+  border-color: rgba(0, 0, 0, 0);
 }
 
 .hour {
@@ -46,10 +52,10 @@ textarea{
   color: #000000;
   border: 2px dashed;
   border-collapse: collapse;
-  text-align: right;
+  text-align: right; /*might need to do this with bootstrap*/
   height: 82px;
   box-shadow: 5px 0 5px -4px #888;
-  z-index: 10;
+  z-index: 1;
 }
 
 .past {
@@ -68,7 +74,6 @@ textarea{
 }
 
 .saveBtn {
-  border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
@@ -76,13 +81,15 @@ textarea{
   height:78px;
   align-self: center;
   box-shadow: -5px 0px 5px -2px #888;
-  z-index: 10;
+  z-index: 1;
 }
 
-.saveBtn i:hover {
-  font-size: 20px;
+.saveBtn:hover {
+  color: black;
   transition: all .3s ease-in-out;
 }
+
+
 
 footer {
   height: 5vh;
