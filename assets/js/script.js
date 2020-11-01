@@ -13,9 +13,9 @@ var activities = []
 //     console.log(activities)
 // }
 
-// var saveActivity = function() {
-//     localStorage.setItem("activities", JSON.stringify(activities));
-// }
+var saveActivity = function() {
+    localStorage.setItem("activities", JSON.stringify(activities));
+}
 
 $(".saveBtn").on("click", function(){
         activityText = $(this).prev().children("textarea").val();
@@ -42,6 +42,7 @@ $(".saveBtn").on("click", function(){
             activities.sort((a, b) => a.id - b.id);
             console.log(activities)
         }
+        saveActivity();
 });
 var timeStatusAudit = function() {
     $(".hour").each(function (){
