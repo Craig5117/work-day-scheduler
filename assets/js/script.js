@@ -64,25 +64,31 @@ $(".saveBtn").on("click", function(){
         // console.log(activityObj)
         // console.log(index)
 });
-
-$(".hour").each(function(){
+var timeStatusAudit = function() {
+    $(".hour").each(function (){
     console.log("I was checked");
-    var currentTime = moment().format('H');
-    console.log(currentTime)
+    var currentTime = Math.floor(moment().format('H'));
+    console.log("The current time is " + currentTime)
     var activityTime = parseInt($(this).attr("data-time"));
-    if (Math.abs(currentTime - activityTime > 0) && Math.abs(currentTime - activityTime <= 1)) {
+    if (activityTime === currentTime) {
         console.log(activityTime + " is now");
         $(this).siblings(".activity").removeClass("future").addClass("present");
     }
     else if (activityTime - currentTime < 0) {
         console.log(activityTime + " has already passed")
-        $(this).siblings(".activity").removeClass("future", "present").addClass("past");
+        $(this).siblings(".activity").removeClass("future")
+        $(this).siblings(".activity").removeClass("present").addClass("past");
     }
     else if (activityTime - currentTime > 0) {
         console.log("You still have time until " + activityTime)
-        $(this).siblings(".activity").removeClass("past", "present").addClass("future");
+        $(this).siblings(".activity").removeClass("present");
+        $(this).siblings(".activity").removeClass("past").addClass("future");
     }
-});
+    });
+    setTimeout(timeStatusAudit, 1800000);
+};
+
  
 $("#date").text(moment().format('dddd, MMMM Do')); 
 
+timeStatusAudit();
