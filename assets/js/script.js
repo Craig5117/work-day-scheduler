@@ -1,17 +1,26 @@
 var activities = []
 
 
-// var loadActivities = function() {
-//      activities = JSON.parse(localStorage.getItem("activities"));
-  
-//     // if nothing in localStorage, create a new object to track all activity arrays
-//     if (!activities) {
-//       activities = {
-//         activity = [$(".activity-text").attr("id").val()]
-//       };
-//     }
-//     console.log(activities)
-// }
+var loadActivities = function() {
+    activities = JSON.parse(localStorage.getItem("activities"));
+    console.log(activities) 
+    var textVal = 
+    $("textarea").each(function() {
+    for (var i = 0; i < activities.length; ++i) {
+            if (activities[i].id === parseInt($(this).attr("id"))){
+        console.log(parseInt($(this).attr("id")))
+        console.log(activities[i].text)
+            $(this).val() === activities[i].text;
+
+            
+            }
+            // if (activities[i].id === $(this).id) {
+            //     $(this).val().replaceWith(activities[i].text);
+            // }
+        
+        }
+    })
+}
 
 var saveActivity = function() {
     localStorage.setItem("activities", JSON.stringify(activities));
@@ -46,21 +55,21 @@ $(".saveBtn").on("click", function(){
 });
 var timeStatusAudit = function() {
     $(".hour").each(function (){
-    console.log("I was checked");
+    // console.log("I was checked");
     var currentTime = Math.floor(moment().format('H'));
-    console.log("The current time is " + currentTime)
+    // console.log("The current time is " + currentTime)
     var activityTime = parseInt($(this).attr("data-time"));
     if (activityTime === currentTime) {
-        console.log(activityTime + " is now");
+        // console.log(activityTime + " is now");
         $(this).siblings(".activity").removeClass("future").addClass("present");
     }
     else if (activityTime - currentTime < 0) {
-        console.log(activityTime + " has already passed")
+        // console.log(activityTime + " has already passed")
         $(this).siblings(".activity").removeClass("future")
         $(this).siblings(".activity").removeClass("present").addClass("past");
     }
     else if (activityTime - currentTime > 0) {
-        console.log("You still have time until " + activityTime)
+        // console.log("You still have time until " + activityTime)
         $(this).siblings(".activity").removeClass("present");
         $(this).siblings(".activity").removeClass("past").addClass("future");
     }
@@ -73,3 +82,4 @@ var timeStatusAudit = function() {
 $("#date").text(moment().format('dddd, MMMM Do')); 
 
 timeStatusAudit();
+loadActivities();
