@@ -24,15 +24,15 @@
   </head>
 
   <body>
+    <!--Hero-->
     <header class="jumbotron text-center">
-      <h1 class="display-3">Work Day Scheduler</h1>
+      <h1>Work Day Scheduler</h1>
       <p class="lead description">A simple calendar app for scheduling your work day<br />
         <span id="date"></span></p>
-      
-      <p id="currentDay" class="lead"></p>
+      <button id="clear" class="btn bg-secondary shadow text-light">New Schedule?</button>
     </header>
     <div class="container">
-      <!-- Timeblocks go here -->
+      <!-- Start Time Blocks-->
       <!--9AM Row-->
       <div class="row time-block">
         <div class="col-1 border-secondary border-left-0 hour pt-3" data-time="9">
@@ -142,7 +142,10 @@
         </div>
       </div>
     </div>
+    <!--End Time Blocks-->
+    <!--Footer here-->
     <footer class="bg-white fixed-bottom border-secondary"></footer>
+    <!--Scripts Here-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
