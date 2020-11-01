@@ -20,9 +20,9 @@ var activities = []
 $(".saveBtn").on("click", function(){
         activityText = $(this).prev().children("textarea").val();
         activityId = $(this).prev().children("textarea").attr("id");
-        // activityIndex = parseInt(activityId);
-        console.log("Index is " + activityId)
-        activityObj = {id: activityId, text: activityText}
+        activityIndex = parseInt(activityId);
+        console.log("Index is " + activityIndex)
+        activityObj = {id: activityIndex, text: activityText}
         console.log("activities.length is " + activities.length)
         if (activities.length === 0) {
             activities.push(activityObj)
@@ -39,6 +39,7 @@ $(".saveBtn").on("click", function(){
                 
             }
             activities.push(activityObj);
+            activities.sort((a, b) => a.id - b.id);
             console.log(activities)
         }
 });
