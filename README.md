@@ -1,5 +1,6 @@
 # Work Day Scheduler
-
+![Screenshot of Work Day Scheduler](./screenshots/screenshot-1.jpg)
+![Screenshot of Work Day Scheduler Color Status Example](./screenshots/screenshot-2.jpg)
 ## Purpose
 A simple calendar application for scheduling your work day.
 ### Table of Contents
