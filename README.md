@@ -7,6 +7,7 @@ A simple calendar application for scheduling your work day.
 - [Built With](#built-with)
 - [Contribution](#contribution)
     - [Author Contact Info](#author-contact-info)
+- [Features](#features)
 
 
 ## Built With
@@ -26,6 +27,15 @@ A simple calendar application for scheduling your work day.
 https://craig5117.github.io/work-day-scheduler/
 
 [Back to Contents](#table-of-contents)
+
+---
+## Features
+- Displays current time for user convenience. The time is updated every 15 minutes.
+- Future events are highlighted in green, current hour is highlighted in red, past events are gray.
+- The user may enter an event into the provided text area and click the save button to save their event.
+- If the user does not click save but continues down the list filling in time slots, the app will automatically save their entries.
+- When the user wants to start an entirely new schedule, they can simply click the new schedule button for a clean slate.
+- Layout is slightly modified for mobile screens.
 
 ---
 
