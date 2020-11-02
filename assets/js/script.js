@@ -73,6 +73,7 @@ $(".saveBtn").on("click", function(){
         saveActivity();
 });
 
+// blur save
 $(".activity-text").on("blur", function(){
     // get textarea text and id
     activityText = $(this).val().trim();
