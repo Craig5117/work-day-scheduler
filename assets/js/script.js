@@ -73,6 +73,36 @@ $(".saveBtn").on("click", function(){
         saveActivity();
 });
 
+$(".activity-text").on("blur", function(){
+    // get textarea text and id
+    activityText = $(this).val().trim();
+    activityId = $(this).attr("id");
+    // convert id to integer
+    activityIndex = parseInt(activityId);
+    // store id integer and text in an object
+    activityObj = {id: activityIndex, text: activityText};
+    // if there are no objects in activities array then push
+    if (activities.length === 0) {
+        activities.push(activityObj);
+        console.log(activities);
+    }
+    // otherwise, loop over activities array
+    else { 
+        for (var i = 0; i < activities.length; ++i) {
+            // if an object id matches the new activity id, delete it
+            if (activities[i].id === activityObj.id) {
+                activities.splice(activities[i].id, 1);
+            }
+        }
+        // push the new activityObj
+        activities.push(activityObj);
+        // sort the objects by id so the next time it is updated the correct item will be spliced
+        activities.sort((a, b) => a.id - b.id);
+    }
+    // save activities array to localStorage
+    saveActivity();
+});
+
 // audit each time block and determine the status of the activity as past, present, or future
 var timeStatusAudit = function() {
     $(".hour").each(function (){
